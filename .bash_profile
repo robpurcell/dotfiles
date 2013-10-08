@@ -54,6 +54,9 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
+export JAVA_HOME=`/usr/libexec/java_home`
+export RBENV_ROOT=/usr/local/var/rbenv  
+
 # Configure PATH
 #  - These are line by line so that you can kill one without affecting the others.
 #  - Lowest priority first, highest priority last.
@@ -63,3 +66,10 @@ export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
+export PATH=/usr/local/git/bin:$PATH
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/opt/ruby/bin:$PATH
+
+eval "$(rbenv init -)"
+[[ -s "/Users/rob/.gvm/bin/gvm-init.sh" ]] && source "/Users/rob/.gvm/bin/gvm-init.sh"
