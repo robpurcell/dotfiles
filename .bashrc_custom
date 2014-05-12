@@ -1,5 +1,55 @@
+## -----------------------
+## --  Aliases          --
+## -----------------------
 alias gh="open \`git remote -v | grep git@github.com | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/:/\//' -e 's/git@/http:\/\//'\`"
 if !(which subl > /dev/null); then ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl; fi
+
+## ----------------------------------------------------
+## --  Configure path                                --
+## --  Lowest priority first, highest priority last. --
+## ----------------------------------------------------
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
+
+## -----------------------
+## --  Heroku           --
+## -----------------------
+export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
+
+## -----------------------
+## --  Node             --
+## -----------------------
+export PATH=/usr/local/share/npm/bin:$PATH
+
+
+## -----------------------
+## --  Ruby             --
+## -----------------------
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=/usr/local/opt/ruby/bin:$PATH
 
+
+## -----------------------
+## -- Java              --
+## -----------------------
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+## -----------------------
+## --  Gvm              --
+## -----------------------
+[[ -s "/Users/rob/.gvm/bin/gvm-init.sh" ]] && source "/Users/rob/.gvm/bin/gvm-init.sh"
+
+
+## -----------------------
+## --  UmlGraph         --
+## -----------------------
+export PATH=$PATH:/Users/rob/Development/software/UMLGraph-5.6_6.6-SNAPSHOT/bin
+
+
+## -----------------------
+## --  AutoJump         --
+## -----------------------
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
